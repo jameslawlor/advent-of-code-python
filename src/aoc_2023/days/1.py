@@ -1,32 +1,22 @@
 import sys
 
-from aoc_2023.helpers import (
-    strip_alphabetical_chars_from_string,
-    get_first_last_digits_from_string,
-    convert_str_to_numerical,
-    convert_spelled_numbers_to_numerical,
+from aoc_2023.helpers.solvers import (
     read_input,
-    parse_args
+    parse_args,
+    get_patterns,
+    solve_all_calibration_values,
 )
 
-args = parse_args()
-input = read_input(args.input_file)
 
-if args.part == "1":
-    summation = 0
-    for line in input:
-        line_numerical_characters_only = strip_alphabetical_chars_from_string(line)
-        # print(line, line_numerical_characters_only)
-        first_last_digits = get_first_last_digits_from_string(line_numerical_characters_only)
-        first_last_digits_int = convert_str_to_numerical(first_last_digits)
-        summation += first_last_digits_int
-    print(summation)
+def main():
+    args = parse_args()
+    input = read_input(args.input_file)
+    accept_written_digits = args.accept_written_digits
 
-elif args.part == "2":
-    summation = 0
-    for line in input:
-        convert_spelled_numbers_to_numerical(line)
-        result = convert_spelled_numbers_to_numerical(line)
-        summation+=result
-        # print(line, result)
-    print(summation)
+    patterns_to_find = get_patterns(accept_written_digits)
+    calibration_value_sum = solve_all_calibration_values(input, patterns_to_find)
+    print(calibration_value_sum)
+
+
+if __name__ == "__main__":
+    main()
