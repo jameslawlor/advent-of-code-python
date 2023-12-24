@@ -1,5 +1,5 @@
 import pytest
-from aoc_2023.helpers.solvers import (
+from aoc_2023.helpers.day_1_solvers import (
     convert_str_to_numerical,
     get_patterns,
     solve_all_calibration_values,

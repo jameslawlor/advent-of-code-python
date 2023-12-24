@@ -1,6 +1,6 @@
 import sys
 
-from aoc_2023.helpers.solvers import (
+from aoc_2023.helpers.day_1_solvers import (
     get_patterns,
     solve_all_calibration_values,
 )
