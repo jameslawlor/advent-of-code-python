@@ -39,7 +39,6 @@ def solve_all_calibration_values(input, patterns_to_find) -> int:
 
 def solve_single_calibration_value(line, patterns_to_find) -> int:
     patterns_and_their_indices = find_indices_of_patterns(line, patterns_to_find)
-    print(patterns_and_their_indices)
     (first_pattern_str, last_pattern_str) = find_first_and_last_patterns(
         patterns_and_their_indices
     )

@@ -1,12 +1,15 @@
 import sys
 
 from aoc_2023.helpers.solvers import (
-    read_input,
-    parse_args,
     get_patterns,
     solve_all_calibration_values,
 )
 
+
+from aoc_2023.helpers.input_handling import (
+    read_input,
+    parse_args,
+)
 
 def main():
     args = parse_args()
