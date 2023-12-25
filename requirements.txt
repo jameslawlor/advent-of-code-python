@@ -1,3 +1,4 @@
 pytest
 black
 setuptools
+numpy
