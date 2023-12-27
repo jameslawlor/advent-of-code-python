@@ -19,3 +19,7 @@ Homepage = "https://github.com/jameslawlor/aoc-2023"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.black]
+line-length = 90
+target-version = ['py39']
