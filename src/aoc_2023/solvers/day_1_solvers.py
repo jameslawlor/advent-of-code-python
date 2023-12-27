@@ -70,7 +70,9 @@ def find_first_and_last_patterns(patterns_and_their_indices):
     return (char_at_lowest, char_at_highest)
 
 
-def convert_first_last_patterns_to_calibration_value(first_pattern_str, last_pattern_str):
+def convert_first_last_patterns_to_calibration_value(
+    first_pattern_str, last_pattern_str
+):
     if first_pattern_str in SPELLED_NUMBERS_MAPPING.keys():
         first_pattern_str = str(SPELLED_NUMBERS_MAPPING[first_pattern_str])
 

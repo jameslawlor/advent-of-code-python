@@ -153,7 +153,9 @@ def test_symbol_positions():
     ],
 )
 def test_check_window_for_symbol(test_window, test_symbol_positions, expected_result):
-    assert check_window_for_symbol(test_window, test_symbol_positions) == expected_result
+    assert (
+        check_window_for_symbol(test_window, test_symbol_positions) == expected_result
+    )
 
 
 def test_calculate_sum_of_part_numbers(day_3_expected_part_numbers):

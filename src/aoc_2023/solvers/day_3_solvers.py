@@ -34,7 +34,7 @@ def identify_part_numbers(input, symbol_positions) -> list:
     part_numbers = []
 
     for line_number, line in enumerate(input):
-        matched_numbers = re.finditer(f"(\\d+)", line)
+        matched_numbers = re.finditer("(\\d+)", line)
         line_sum_of_part_numbers = []
 
         for match in matched_numbers:
