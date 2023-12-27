@@ -157,8 +157,6 @@ def identify_part_numbers(input, symbols_collection) -> list:
             if part.check_window_for_symbol(symbol_positions):
                 parts_list.append(part)
 
-    for p in parts_list:
-        print(p)
     return parts_list
 
 
@@ -172,9 +170,6 @@ def identify_gears(parts_collection, symbol_collection):
         sym.check_if_gear()
 
     gear_collection = [sym for sym in symbol_collection if sym.is_gear]
-
-    for sym in [sym for sym in symbol_collection if sym.is_potential_gear]:
-        print(sym)
 
     return gear_collection
 
