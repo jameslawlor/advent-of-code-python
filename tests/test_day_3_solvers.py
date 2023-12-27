@@ -9,14 +9,18 @@ from aoc_2023.solvers.day_3_solvers import (
     identify_part_numbers,
     calculate_sum_of_part_numbers,
     solve_day_3,
+    identify_gears,
 )
 
 
 # Test cases for the Part class
 def test_set_coordinates():
-    pc = Part(part_number=None)
+    pc = Part(part_number="10")
     pc.set_coordinates(1, 2, 4)
-    assert pc.full_coordinates == [(1, 2), (1, 3), (1, 4)]
+    assert pc.full_coordinates == [
+        (1, 2),
+        (1, 3),
+    ]
 
 
 def test_set_part_number():
@@ -48,36 +52,10 @@ def test_set_coordinates_invalid_input():
         pc.set_coordinates(1, 4, 2)
 
 
-def test_set_symbol_coordinates():
-    sym = Symbol()
-    sym.set_coordinates(1, 2)
+def test_symbol():
+    sym = Symbol("$", 1, 2)
+    assert sym.symbol == "$"
     assert sym.coordinates == (1, 2)
-
-
-def test_set_symbol_symbol():
-    sym = Symbol()
-    sym.set_symbol("X")
-    assert sym.symbol == "X"
-
-
-# Additional test cases to check default values
-def test_symbol_default_values():
-    sym = Symbol()
-    assert sym.coordinates is None
-    assert sym.symbol is None
-
-
-# Additional test case to check if set_coordinates
-# and set_symbol can be called independently
-def test_symbol_independent_calls():
-    sym = Symbol()
-    sym.set_coordinates(3, 4)
-    assert sym.coordinates == (3, 4)
-    assert sym.symbol is None  # symbol should remain unchanged
-
-    sym.set_symbol("O")
-    assert sym.coordinates == (3, 4)  # coordinates should remain unchanged
-    assert sym.symbol == "O"
 
 
 # Test cases for check_char_is_number function
@@ -142,12 +120,12 @@ def day_3_test_input():
 @pytest.fixture
 def day_3_expected_symbols_collection():
     return [
-        Symbol("*", (1, 3)),
-        Symbol("#", (3, 6)),
-        Symbol("*", (4, 3)),
-        Symbol("+", (5, 5)),
-        Symbol("$", (8, 3)),
-        Symbol("*", (8, 5)),
+        Symbol("*", 1, 3),
+        Symbol("#", 3, 6),
+        Symbol("*", 4, 3),
+        Symbol("+", 5, 5),
+        Symbol("$", 8, 3),
+        Symbol("*", 8, 5),
     ]
 
 
@@ -197,7 +175,7 @@ def test_calculate_sum_of_part_numbers(
 
 
 def test_solve_day_3(day_3_test_input):
-    assert solve_day_3(day_3_test_input) == 4361
+    assert solve_day_3(day_3_test_input) == (4361, 467835)
 
 
 @pytest.fixture
@@ -210,15 +188,22 @@ def day_3_test_input_custom():
 
 
 def test_custom_input(day_3_test_input_custom):
-    assert solve_day_3(day_3_test_input_custom) == 0
+    assert solve_day_3(day_3_test_input_custom) == (0, 0)
 
 
-# def test_identify_gears(day_3_test_input, day_3_expected_symbols_collection):
-#     assert identify_gears(day_3_test_input, day_3_expected_symbols_collection) == set(
-#         [
-#             (
-#                 (1, 3),
-#                 (8, 5),
-#             )
-#         ]
-#     )
+@pytest.fixture
+def day_3_expected_gears_collection(day_3_expected_symbols_collection):
+    return [
+        day_3_expected_symbols_collection[0],
+        day_3_expected_symbols_collection[5],
+    ]
+
+
+def test_identify_gears(
+    day_3_test_input, day_3_expected_symbols_collection, day_3_expected_gears_collection
+):
+    test_parts_list = identify_part_numbers(
+        day_3_test_input, day_3_expected_symbols_collection
+    )
+    output = identify_gears(test_parts_list, day_3_expected_symbols_collection)
+    assert output == day_3_expected_gears_collection
