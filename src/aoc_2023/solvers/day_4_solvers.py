@@ -6,24 +6,27 @@ class Card:
         self.card_number = card_number
         self.winning_numbers = winning_numbers
         self.numbers_i_have = numbers_i_have
-        self.n_winners = None
+        self.n_matches = None
         self.points = None
+        self.n_copies = 1
 
     def __str__(self):
         return (
             f"Card {self.card_number}: {self.winning_numbers} | "
             f"{self.numbers_i_have} | "
-            f"n_winners: {self.n_winners} | points: {self.points}"
+            f"n_matches: {self.n_matches} | "
+            f"points: {self.points} | "
+            f"n_copies: {self.n_copies}"
         )
 
-    def find_n_winners(self):
-        self.n_winners = sum(
+    def find_n_matches(self):
+        self.n_matches = sum(
             [1 for n in self.numbers_i_have if n in self.winning_numbers]
         )
 
     def compute_points(self):
-        if self.n_winners > 0:
-            self.points = 2 ** (self.n_winners - 1)
+        if self.n_matches > 0:
+            self.points = 2 ** (self.n_matches - 1)
         else:
             self.points = 0
 
@@ -50,13 +53,25 @@ def create_cards(input_txt):
 def compute_total_score(cards):
     total_score = 0
     for card in cards:
-        card.find_n_winners()
+        card.find_n_matches()
         card.compute_points()
         total_score += card.points
     return total_score
 
 
+def compute_copies(cards):
+    for card_number, card in enumerate(cards):
+        n_matches_on_card = card.n_matches
+        n_copies_of_card = card.n_copies
+        copies_to_generate = n_copies_of_card
+        for next_card in cards[card_number+1 : card_number + n_matches_on_card + 1]:
+            next_card.n_copies += copies_to_generate
+    return cards
+
+
 def solve_day_4(input) -> int:
     cards = create_cards(input)
     total_score = compute_total_score(cards)
-    return total_score
+    cards_with_copies = compute_copies(cards)
+    n_scratchcards = sum([card.n_copies for card in cards_with_copies])
+    return (total_score, n_scratchcards)

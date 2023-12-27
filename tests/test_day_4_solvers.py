@@ -1,5 +1,10 @@
 import pytest
-from aoc_2023.solvers.day_4_solvers import solve_day_4
+from aoc_2023.solvers.day_4_solvers import (
+    solve_day_4,
+    compute_copies,
+    create_cards,
+    compute_total_score,
+)
 
 
 @pytest.fixture
@@ -26,5 +31,26 @@ def day_4_expected_scores():
     ]
 
 
-def test_solve_day_4(day_4_test_input, day_4_expected_scores):
-    assert solve_day_4(day_4_test_input) == sum(day_4_expected_scores)
+@pytest.fixture
+def day_4_expected_final_cards_count():
+    return [1, 2, 4, 8, 14, 1]
+
+
+def test_day_4_expected_final_cards_count(day_4_expected_final_cards_count):
+    assert sum(day_4_expected_final_cards_count) == 30
+
+
+def test_solve_day_4(
+    day_4_test_input, day_4_expected_scores, day_4_expected_final_cards_count
+):
+    assert solve_day_4(day_4_test_input) == (
+        sum(day_4_expected_scores),
+        sum(day_4_expected_final_cards_count),
+    )
+
+def test_compute_copies(day_4_test_input,day_4_expected_final_cards_count):
+    test_cards = create_cards(day_4_test_input)
+    compute_total_score(test_cards)
+    test_cards_with_copies = compute_copies(test_cards)
+    test_n_scratchcards = [card.n_copies for card in test_cards_with_copies]
+    assert test_n_scratchcards == day_4_expected_final_cards_count
