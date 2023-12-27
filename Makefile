@@ -1,9 +1,12 @@
-all: black test solutions 
+all: black flake tests solutions 
 
 black:
 	black src tests
 
-test:
+flake:
+	flake8 src tests
+
+tests:
 	python3 -m pytest
 
 solutions:

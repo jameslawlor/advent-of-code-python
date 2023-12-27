@@ -1,5 +1,3 @@
-import sys
-
 from aoc_2023.solvers.day_1_solvers import (
     get_patterns,
     solve_all_calibration_values,
@@ -24,7 +22,8 @@ def main():
     patterns_to_find = get_patterns(accept_written_digits)
     calibration_value_sum = solve_all_calibration_values(input, patterns_to_find)
     print(
-        f"Day 1: Solution with accept_written_digits={accept_written_digits} is {calibration_value_sum}."
+        f"Day 1: Solution with accept_written_digits={accept_written_digits}"
+        f"is {calibration_value_sum}."
     )
 
 
