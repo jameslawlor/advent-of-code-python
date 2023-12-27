@@ -11,6 +11,6 @@ def parse_args():
     parser.add_argument(
         "--input_file",
     )
-    parser.add_argument("--accept_written_digits", action=argparse.BooleanOptionalAction)
+    parser.add_argument("--part", type=int)
     args = parser.parse_args()
     return args

@@ -1,6 +1,6 @@
 import re
 
-EX_1_SPELLED_NUMBERS_MAPPING = {
+SPELLED_NUMBERS_MAPPING = {
     "one": 1,
     "two": 2,
     "three": 3,
@@ -19,7 +19,7 @@ def get_patterns(accept_written_digits) -> list:
     if not accept_written_digits:
         patterns_to_return = numerics_as_strings
     else:
-        spelled_numbers_list = list(EX_1_SPELLED_NUMBERS_MAPPING.keys())
+        spelled_numbers_list = list(SPELLED_NUMBERS_MAPPING.keys())
         patterns_to_return = numerics_as_strings + spelled_numbers_list
 
     return patterns_to_return
@@ -71,11 +71,11 @@ def find_first_and_last_patterns(patterns_and_their_indices):
 
 
 def convert_first_last_patterns_to_calibration_value(first_pattern_str, last_pattern_str):
-    if first_pattern_str in EX_1_SPELLED_NUMBERS_MAPPING.keys():
-        first_pattern_str = str(EX_1_SPELLED_NUMBERS_MAPPING[first_pattern_str])
+    if first_pattern_str in SPELLED_NUMBERS_MAPPING.keys():
+        first_pattern_str = str(SPELLED_NUMBERS_MAPPING[first_pattern_str])
 
-    if last_pattern_str in EX_1_SPELLED_NUMBERS_MAPPING.keys():
-        last_pattern_str = str(EX_1_SPELLED_NUMBERS_MAPPING[last_pattern_str])
+    if last_pattern_str in SPELLED_NUMBERS_MAPPING.keys():
+        last_pattern_str = str(SPELLED_NUMBERS_MAPPING[last_pattern_str])
 
     return int(first_pattern_str + last_pattern_str)
 
