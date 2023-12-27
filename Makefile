@@ -1,12 +1,12 @@
-all: black flake tests solutions 
+all: black flake test solutions 
 
 black:
-	black src tests
+	black ./src ./tests
 
 flake:
-	flake8 src tests
+	flake8 ./src ./tests
 
-tests:
+test:
 	python3 -m pytest
 
 solutions:
