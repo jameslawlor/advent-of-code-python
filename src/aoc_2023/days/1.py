@@ -23,7 +23,7 @@ def main():
     calibration_value_sum = solve_all_calibration_values(input, patterns_to_find)
     print(
         f"Day 1: Solution with accept_written_digits={accept_written_digits}"
-        f"is {calibration_value_sum}."
+        f" is {calibration_value_sum}."
     )
 
 
