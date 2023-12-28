@@ -1,4 +1,4 @@
-name: aoc-2023-ci
+name: advent-of-code-python-ci
 
 on: [push, pull_request]
 

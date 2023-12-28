@@ -1,5 +1,5 @@
 import pytest
-from aoc_2023.solvers.day_4_solvers import (
+from advent_of_code.year_2023.solvers.day_4_solvers import (
     solve_day_4,
     compute_copies,
     create_cards,
