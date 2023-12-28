@@ -51,7 +51,7 @@ if __name__ == "__main__":
     day_file_dest = os.path.join(
         "src", "advent_of_code", f"year_{input_year}", f"days/{input_day}.py"
     )
-    template_path = os.path.join(TEMPLATES_PATH, f"days_template.txt")
+    template_path = os.path.join(TEMPLATES_PATH, "days_template.txt")
     generate_file(template_path, input_day, input_year, day_file_dest)
 
     solvers_file_dest = os.path.join(
@@ -60,11 +60,11 @@ if __name__ == "__main__":
         f"year_{input_year}",
         f"solvers/day_{input_day}_solvers.py",
     )
-    template_path = os.path.join(TEMPLATES_PATH, f"solvers_template.txt")
+    template_path = os.path.join(TEMPLATES_PATH, "solvers_template.txt")
     generate_file(template_path, input_day, input_year, solvers_file_dest)
 
     tests_file_dest = os.path.join(
         "tests", f"year_{input_year}", f"test_day_{input_day}_solvers.py"
     )
-    template_path = os.path.join(TEMPLATES_PATH, f"tests_template.txt")
+    template_path = os.path.join(TEMPLATES_PATH, "tests_template.txt")
     generate_file(template_path, input_day, input_year, tests_file_dest)
