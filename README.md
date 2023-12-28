@@ -1,13 +1,13 @@
-# aoc-2023
+# advent-of-code-python
 
 Some overengineered Python solutions for Advent of Code 2023
 
 ```
-docker build -t aoc-2023-app .
-docker run aoc-2023-app
+docker build -t advent-of-code-python-app .
+docker run advent-of-code-python-app
 ```
 
-### Progress
+### 2023 Progress
 
 | Day   | Part 1 | Part 2 |
 | :---: | :------: | :------: |

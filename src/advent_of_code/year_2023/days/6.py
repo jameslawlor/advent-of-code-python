@@ -1,7 +1,7 @@
-from aoc_2023.solvers.day_6_solvers import (
+from advent_of_code.year_2023.solvers.day_6_solvers import (
     solve_day_6,
 )
-from aoc_2023.utils.input_handling import read_input, parse_args
+from advent_of_code.utils.input_handling import read_input, parse_args
 
 
 def main():

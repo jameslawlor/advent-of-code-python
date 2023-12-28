@@ -1,3 +1,3 @@
 from setuptools import setup
 
-setup(name="aoc-2023", version="0.1", description="AOC 2023", packages=["src/aoc_2023"])
+setup(name="advent-of-code-python", version="0.1", description="advent-of-code-python", packages=["src/advent_of_code"])

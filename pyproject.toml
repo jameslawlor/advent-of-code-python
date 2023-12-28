@@ -1,5 +1,5 @@
 [project]
-name = "aoc-2023"
+name = "advent-of-code-python"
 version = "0.0.1"
 authors = [
   { name="James Lawlor", email="jameslawlor1987@gmail.com" },
@@ -14,7 +14,7 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/jameslawlor/aoc-2023"
+Homepage = "https://github.com/jameslawlor/advent-of-code-python"
 
 [build-system]
 requires = ["hatchling"]

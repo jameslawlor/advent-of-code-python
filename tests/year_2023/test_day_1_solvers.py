@@ -1,5 +1,5 @@
 import pytest
-from aoc_2023.solvers.day_1_solvers import (
+from advent_of_code.year_2023.solvers.day_1_solvers import (
     convert_str_to_numerical,
     get_patterns,
     solve_all_calibration_values,

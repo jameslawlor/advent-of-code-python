@@ -1,10 +1,10 @@
-from aoc_2023.solvers.day_1_solvers import (
+from advent_of_code.year_2023.solvers.day_1_solvers import (
     get_patterns,
     solve_all_calibration_values,
 )
 
 
-from aoc_2023.utils.input_handling import (
+from advent_of_code.utils.input_handling import (
     read_input,
     parse_args,
 )

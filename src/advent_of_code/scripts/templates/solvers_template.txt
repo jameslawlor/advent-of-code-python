@@ -1,0 +1,3 @@
+def solve_day_{day}(input):
+    part_1, part_2 = do_something(input)
+    return (part_1, part_2)
