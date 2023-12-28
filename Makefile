@@ -1,14 +1,26 @@
-all: black flake test solutions 
+.PHONY: all clean black flake test solutions 
 
+# Default target
+all: black flake test solutions clean
+
+# Clean temporary and generated files
+clean:
+	find . \( -type f -name '*.pyc' -or -type d -name '__pycache__' \) -delete
+	find . \( -type d -name '.eggs' -or -type d -name '*.egg-info' -or -type d -name '.pytest_cache' \) | xargs rm -rf
+
+# Format code using black
 black:
 	black ./src ./tests
 
+# Run flake8 for linting
 flake:
 	flake8 ./src ./tests
 
+# Run tests
 test:
 	python3 -m pytest
 
+# Run specific solutions for Advent of Code 2023
 solutions:
 	python3 src/aoc_2023/days/1.py --input_file inputs/1.txt --part 1
 	python3 src/aoc_2023/days/1.py --input_file inputs/1.txt --part 2
