@@ -16,3 +16,4 @@ docker run aoc-2023-app
 | 03 | ⭐️ | ⭐️ |
 | 04 | ⭐️ | ⭐️ |
 | 05 | todo | todo |
+| 06 | ⭐️ | todo |
