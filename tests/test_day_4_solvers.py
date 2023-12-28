@@ -48,7 +48,8 @@ def test_solve_day_4(
         sum(day_4_expected_final_cards_count),
     )
 
-def test_compute_copies(day_4_test_input,day_4_expected_final_cards_count):
+
+def test_compute_copies(day_4_test_input, day_4_expected_final_cards_count):
     test_cards = create_cards(day_4_test_input)
     compute_total_score(test_cards)
     test_cards_with_copies = compute_copies(test_cards)

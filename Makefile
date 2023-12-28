@@ -15,3 +15,4 @@ solutions:
 	python3 src/aoc_2023/days/2.py --input_file inputs/2.txt
 	python3 src/aoc_2023/days/3.py --input_file inputs/3.txt
 	python3 src/aoc_2023/days/4.py --input_file inputs/4.txt
+	python3 src/aoc_2023/days/6.py --input_file inputs/6.txt

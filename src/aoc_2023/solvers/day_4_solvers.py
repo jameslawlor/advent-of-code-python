@@ -64,7 +64,7 @@ def compute_copies(cards):
         n_matches_on_card = card.n_matches
         n_copies_of_card = card.n_copies
         copies_to_generate = n_copies_of_card
-        for next_card in cards[card_number+1 : card_number + n_matches_on_card + 1]:
+        for next_card in cards[card_number + 1 : card_number + n_matches_on_card + 1]:
             next_card.n_copies += copies_to_generate
     return cards
 
