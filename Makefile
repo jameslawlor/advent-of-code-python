@@ -28,3 +28,9 @@ solutions:
 	python3 src/advent_of_code/year_2023/days/3.py --input_file inputs/2023/3.txt
 	python3 src/advent_of_code/year_2023/days/4.py --input_file inputs/2023/4.txt
 	python3 src/advent_of_code/year_2023/days/6.py --input_file inputs/2023/6.txt
+
+.PHONY: new-day-skeleton-files-from-template
+new-day-skeleton-files-from-template:
+	@read -p "Enter year: " year; \
+	read -p "Enter day: " day; \
+	python3 src/advent_of_code/scripts/generate_new_day_skeleton_files_from_templates.py --day $$day --year $$year
