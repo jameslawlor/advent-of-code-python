@@ -23,7 +23,7 @@ def main():
 
     args = parser.parse_args()
     day_zero_padded_str = str(args.day).zfill(2)
-    input_file = f"inputs/{args.year}/{day_zero_padded_str}.dat"
+    input_file = f"inputs/year_{args.year}/{day_zero_padded_str}.dat"
 
     day_module = f"advent_of_code.year_{args.year}.day_{day_zero_padded_str}"
     print(day_module)
