@@ -1,6 +1,6 @@
 import pytest
-from advent_of_code.year_{year}.solvers.day_{day}_solvers import (
-    solve_day_{day},
+from advent_of_code.year_{year}.day_{day} import (
+    solve,
 )
 
 
