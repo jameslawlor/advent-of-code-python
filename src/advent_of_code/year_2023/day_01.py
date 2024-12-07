@@ -96,22 +96,25 @@ def find_indices_of_patterns(line, patterns_to_find):
 
     return patterns_and_indices
 
-def main(input_file, part):
-    # args = parse_args()
-    # input = read_input(args.input_file)
-    input = read_input(input_file)
-
-    if part == 1:
-        accept_written_digits = False
-    elif part == 2:
-        accept_written_digits = True
+def run_part(input_data, accept_written_digits):
 
     patterns_to_find = get_patterns(accept_written_digits)
-    calibration_value_sum = solve_all_calibration_values(input, patterns_to_find)
-    print(
-        f"Day 1: Solution with accept_written_digits={accept_written_digits}"
-        f" is {calibration_value_sum}."
-    )
+    calibration_value_sum = solve_all_calibration_values(input_data, patterns_to_find)
+    return calibration_value_sum
+
+def main(input_file):
+    # args = parse_args()
+    # input = read_input(args.input_file)
+    input_data = read_input(input_file)
+
+    calibration_value_sum = run_part(input_data, accept_written_digits = False) 
+    
+    print(f"Part 1: Solution is {calibration_value_sum}.")
+
+    calibration_value_sum = run_part(input_data, accept_written_digits = True) 
+
+    print(f"Part 2: Solution is {calibration_value_sum}.")
+
 
 
 if __name__ == "__main__":
