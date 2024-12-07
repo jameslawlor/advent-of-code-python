@@ -1,14 +1,45 @@
 import importlib
 import sys
+import argparse
 
-# if len(sys.argv) < 2:
-#     print("Usage: python run_day.py <day>")
-#     sys.exit(1)
+def main():
+    parser = argparse.ArgumentParser(description="Run a specific Advent of Code solution.")
+    # parser.add_argument(
+    #     "--input_file", 
+    #     required=True, 
+    #     type=str, 
+    #     help="Path to the input file for the day's solution."
+    # )
+    parser.add_argument(
+        "--year", 
+        required=True, 
+        type=int, 
+    )
+    parser.add_argument(
+        "--day", 
+        required=True, 
+        type=str, 
+    )
 
-day = sys.argv[1]
+    args = parser.parse_args()
+    day_zero_padded_str = str(args.day).zfill(2)
+    input_file = f"inputs/{args.year}/{day_zero_padded_str}.dat"
 
-try:
-    module = importlib.import_module(f"advent_of_code.year_2023.days.{day}")
-    module.main()  # Assumes each day's file has a `main` function
-except ModuleNotFoundError:
-    print(f"Day {day} not found.")
+    day_module = f"advent_of_code.year_{args.year}.day_{day_zero_padded_str}"
+    print(day_module)
+
+    try:
+        # Dynamically import the module for the specified day
+        module = importlib.import_module(day_module)
+        # Run the solution (assumes each solver module has a `main()` function)
+        if hasattr(module, "main"):
+            module.main(input_file)
+        else:
+            print("man")
+            print(f"The module {day_module} does not have a 'main(input_file)' function.")
+    except ModuleNotFoundError:
+        print(f"Could not find module: {day_module}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
