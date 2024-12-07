@@ -2,7 +2,7 @@ import os
 import argparse
 
 
-TEMPLATES_PATH = os.path.join(".", "src", "advent_of_code", "scripts", "templates")
+TEMPLATES_PATH = os.path.join("scripts", "templates")
 
 
 def parse_input_args():
@@ -45,26 +45,18 @@ def generate_file(template_file_path, input_day, input_year, output_file_path):
 
 if __name__ == "__main__":
     args = parse_input_args()
-    input_day = args.day
+    input_day_raw = args.day
     input_year = args.year
+    input_day = str(input_day_raw).zfill(2)
 
     day_file_dest = os.path.join(
-        "src", "advent_of_code", f"year_{input_year}", f"days/{input_day}.py"
+        "src", "advent_of_code", f"year_{input_year}", f"day_{input_day}.py"
     )
     template_path = os.path.join(TEMPLATES_PATH, "days_template.txt")
     generate_file(template_path, input_day, input_year, day_file_dest)
 
-    solvers_file_dest = os.path.join(
-        "src",
-        "advent_of_code",
-        f"year_{input_year}",
-        f"solvers/day_{input_day}_solvers.py",
-    )
-    template_path = os.path.join(TEMPLATES_PATH, "solvers_template.txt")
-    generate_file(template_path, input_day, input_year, solvers_file_dest)
-
     tests_file_dest = os.path.join(
-        "tests", f"year_{input_year}", f"test_day_{input_day}_solvers.py"
+        "tests", f"year_{input_year}", f"test_day_{input_day}.py"
     )
     template_path = os.path.join(TEMPLATES_PATH, "tests_template.txt")
     generate_file(template_path, input_day, input_year, tests_file_dest)
