@@ -96,13 +96,14 @@ def find_indices_of_patterns(line, patterns_to_find):
 
     return patterns_and_indices
 
-def main():
-    args = parse_args()
-    input = read_input(args.input_file)
+def main(input_file, part):
+    # args = parse_args()
+    # input = read_input(args.input_file)
+    input = read_input(input_file)
 
-    if args.part == 1:
+    if part == 1:
         accept_written_digits = False
-    elif args.part == 2:
+    elif part == 2:
         accept_written_digits = True
 
     patterns_to_find = get_patterns(accept_written_digits)
