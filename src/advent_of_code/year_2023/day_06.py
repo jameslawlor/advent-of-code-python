@@ -63,9 +63,8 @@ def solve_day_6(input):
     return (races_part_1.solve(), races_part_2.solve())
 
 
-def main():
-    args = parse_args()
-    input = read_input(args.input_file)
+def main(input_file):
+    input = read_input(input_file)
     result_part_1, result_part_2 = solve_day_6(input)
     print(
         f"Day 6: "

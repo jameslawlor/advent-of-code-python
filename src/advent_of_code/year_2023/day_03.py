@@ -194,9 +194,8 @@ def solve_day_3(input) -> int:
 
 
 
-def main():
-    args = parse_args()
-    input = read_input(args.input_file)
+def main(input_file):
+    input = read_input(input_file)
     result_part_1, result_part_2 = solve_day_3(input)
     print(
         f"Day 3: The sum of part numbers is {result_part_1}. "

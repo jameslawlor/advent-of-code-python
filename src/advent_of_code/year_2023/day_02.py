@@ -56,14 +56,11 @@ def calculate_game_power(max_colour_1, max_colour_2, max_colour_3):
     return max_colour_1 * max_colour_2 * max_colour_3
 
 
-def main():
-    args = parse_args()
-    input = read_input(args.input_file)
+def main(input_file):
+    input = read_input(input_file)
     part_1_solution, part_2_solution = solve_day_2(input)
-    print(
-        f"Day 2: Part 1 solution is {part_1_solution}."
-        f"Part 2 solution is {part_2_solution}."
-    )
+    print(f"Day 2: Part 1 solution is {part_1_solution}.")
+    print(f"Part 2 solution is {part_2_solution}.")
 
 
 if __name__ == "__main__":

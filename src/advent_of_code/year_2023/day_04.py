@@ -79,9 +79,8 @@ def solve_day_4(input) -> int:
     return (total_score, n_scratchcards)
 
 
-def main():
-    args = parse_args()
-    input = read_input(args.input_file)
+def main(input_file):
+    input = read_input(input_file)
     result_part_1, result_part_2 = solve_day_4(input)
     print(
         f"Day 4: "

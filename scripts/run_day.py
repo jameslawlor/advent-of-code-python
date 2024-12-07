@@ -26,7 +26,6 @@ def main():
     input_file = f"inputs/year_{args.year}/{day_zero_padded_str}.dat"
 
     day_module = f"advent_of_code.year_{args.year}.day_{day_zero_padded_str}"
-    print(day_module)
 
     try:
         # Dynamically import the module for the specified day
