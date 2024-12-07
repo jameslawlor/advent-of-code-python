@@ -1,6 +1,6 @@
 import pytest
 
-from advent_of_code.year_2023.solvers.day_3_solvers import (
+from advent_of_code.year_2023.day_03 import (
     Part,
     Symbol,
     check_char_is_number,

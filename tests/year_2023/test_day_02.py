@@ -1,5 +1,5 @@
 import pytest
-from advent_of_code.year_2023.solvers.day_2_solvers import (
+from advent_of_code.year_2023.day_02 import (
     solve_day_2,
     check_game_is_possible,
     parse_game_string,

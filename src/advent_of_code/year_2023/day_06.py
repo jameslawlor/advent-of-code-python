@@ -1,3 +1,5 @@
+from advent_of_code.utils.input_handling import read_input
+
 import math
 import re
 
@@ -59,3 +61,17 @@ def solve_day_6(input):
     races_part_1 = create_races(input, part=1)
     races_part_2 = create_races(input, part=2)
     return (races_part_1.solve(), races_part_2.solve())
+
+
+def main(input_file):
+    input = read_input(input_file)
+    result_part_1, result_part_2 = solve_day_6(input)
+    print(
+        f"Day 6: "
+        f" Result for part 1 is {result_part_1}. "
+        f" Result for part 2 is {result_part_2}. "
+    )
+
+
+if __name__ == "__main__":
+    main()

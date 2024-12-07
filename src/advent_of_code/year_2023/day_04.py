@@ -1,3 +1,5 @@
+from advent_of_code.utils.input_handling import read_input
+
 import re
 
 
@@ -75,3 +77,17 @@ def solve_day_4(input) -> int:
     cards_with_copies = compute_copies(cards)
     n_scratchcards = sum([card.n_copies for card in cards_with_copies])
     return (total_score, n_scratchcards)
+
+
+def main(input_file):
+    input = read_input(input_file)
+    result_part_1, result_part_2 = solve_day_4(input)
+    print(
+        f"Day 4: "
+        f" Total points for part 1 is {result_part_1}. "
+        f" Total points for part 2 is {result_part_2}. "
+    )
+
+
+if __name__ == "__main__":
+    main()
