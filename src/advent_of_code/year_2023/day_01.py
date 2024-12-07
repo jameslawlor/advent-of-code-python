@@ -1,6 +1,5 @@
 from advent_of_code.utils.input_handling import (
     read_input,
-    parse_args,
 )
 
 import re

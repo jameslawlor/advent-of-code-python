@@ -1,4 +1,4 @@
-from advent_of_code.utils.input_handling import read_input, parse_args
+from advent_of_code.utils.input_handling import read_input
 
 import math
 import re
