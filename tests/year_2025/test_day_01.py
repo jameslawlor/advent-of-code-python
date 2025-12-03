@@ -48,5 +48,3 @@ def test_solver(day_01_test_input, day_01_expected_output):
 def test_turn_dial(current_position, turn_direction, distance, expected_new_position):
     new_position = turn_dial(current_position, turn_direction, distance)
     assert new_position == expected_new_position
-
-def 
