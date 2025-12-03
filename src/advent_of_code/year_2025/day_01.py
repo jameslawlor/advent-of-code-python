@@ -24,7 +24,7 @@ def position_counter(current_position, target_position=0, ):
         return 1
     return 0
 
-def solve_part_1(parsed_input):
+def solve(parsed_input):
 
     current_position = DIAL_STARTING_POSITION
     target_position_count = 0
@@ -33,15 +33,9 @@ def solve_part_1(parsed_input):
         turn_direction, distance = parse_instruction(instruction)
         current_position = turn_dial(current_position, turn_direction, distance)
         target_position_count += position_counter(current_position)
-    return target_position_count
 
-def solve_part_2(parsed_input):
-    return None
-
-
-def solve(input):
-    part_1_solution = solve_part_1(input)
-    part_2_solution = solve_part_2(input)
+    part_1_solution = target_position_count
+    part_2_solution = None
     return (part_1_solution, part_2_solution)
 
 
