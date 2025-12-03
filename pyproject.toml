@@ -32,3 +32,7 @@ addopts = [
 [tool.black]
 line-length = 88
 target-version = ['py39']
+
+[project.scripts]
+# Console script for running day solutions: after `pip install -e .` you can run `aoc --year 2025 --day 1`
+aoc = "advent_of_code.cli:main"
