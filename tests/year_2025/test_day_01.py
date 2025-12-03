@@ -2,6 +2,7 @@ import pytest
 from advent_of_code.year_2025.day_01 import (
     solve,
     turn_dial,
+    passing_zero_counter,
 )
 
 
@@ -48,3 +49,20 @@ def test_solver(day_01_test_input, day_01_expected_output):
 def test_turn_dial(current_position, turn_direction, distance, expected_new_position):
     new_position = turn_dial(current_position, turn_direction, distance)
     assert new_position == expected_new_position
+
+@pytest.mark.parametrize(
+    "start_position, turn_direction, distance, expected_count",
+    [
+        (50, 1, 1000, 10),
+        # (50, 1, 49, 0),
+        # (50, -1, 49, 0),
+        # (50, -1, 50, 1),
+        # (50, -1, 51, 1),
+        # (99, 1, 1, 1),
+        # (99, -1, 1, 0),
+        # (0, 1, 100, 1),
+    ]
+)
+def test_passing_zero_counter(start_position, turn_direction, distance, expected_count):
+    count = passing_zero_counter(start_position, turn_direction, distance)
+    assert count == expected_count
