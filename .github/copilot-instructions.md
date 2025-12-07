@@ -37,7 +37,7 @@ Project-specific conventions and gotchas (be precise):
 
 - Zero-padding is significant: day files and input files are named with two-digit zero padding (e.g., `day_01.py` ↔ `01.dat`). `run_day.py` zero-pads the provided `--day` argument.
 - `run_all_solutions.py` relies on simple `os.listdir` ordering; do not assume nested directories beyond `src/advent_of_code/year_<YYYY>/`.
-- The repo uses `python3` in scripts; local development should use a Python 3.8+ interpreter (pyproject says >=3.8). Black config targets Python 3.9 but code is compatible with 3.8+.
+- The repo uses `python3` in scripts; local development should use a Python 3.8+ interpreter (pyproject says >=3.8). Black config targets Python 3.12 but code is compatible with 3.8+.
 - Tests import the package from `src/` via pytest config. When editing tests or modules, ensure the module path `advent_of_code.year_<YYYY>.day_<NN>` is importable.
 
 Small implementation checklist for a new/updated day module:
