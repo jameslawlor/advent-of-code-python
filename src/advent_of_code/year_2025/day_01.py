@@ -29,6 +29,8 @@ def points_at_zero_counter(current_position, turn_direction, distance):
     full_loops = distance // DIAL_SIZE
     
     partial_loops = 0
+    print("Case:", current_position, turn_direction, distance)
+    print(" Full loops:", full_loops)
     
     # Check if we passed zero in the remaining distance after full loops
     new_position = turn_dial(current_position, turn_direction, distance)
@@ -38,9 +40,12 @@ def points_at_zero_counter(current_position, turn_direction, distance):
         partial_loops += 1
 
     # check if we landed on zero
-    if new_position == 0:
+    if current_position!=0 and new_position == 0:
+        print(" Landed on zero, updating partial loops")
         partial_loops += 1
-        
+
+    print(" Partial loops:", partial_loops)
+
     return full_loops + partial_loops
 
 def solve(parsed_input):
@@ -67,9 +72,9 @@ def main(input_file):
     input = read_input(input_file)
     (result_part_1, result_part_2) = solve(input)
     print(
-        f"Day 01: "
-        f" Result for part 1 is {result_part_1}. "
-        f" Result for part 2 is {result_part_2}. "
+        f"Day 01 \n"
+        f" Result for part 1 is {result_part_1} \n"
+        f" Result for part 2 is {result_part_2} \n"
     )
 
 
