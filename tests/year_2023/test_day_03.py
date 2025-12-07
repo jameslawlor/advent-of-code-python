@@ -3,13 +3,13 @@ import pytest
 from advent_of_code.year_2023.day_03 import (
     Part,
     Symbol,
+    calculate_sum_of_part_numbers,
     check_char_is_number,
     check_char_is_symbol,
     get_symbols,
-    identify_part_numbers,
-    calculate_sum_of_part_numbers,
-    solve_day_3,
     identify_gears,
+    identify_part_numbers,
+    solve_day_3,
 )
 
 

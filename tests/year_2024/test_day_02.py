@@ -1,7 +1,8 @@
 import pytest
+
 from advent_of_code.year_2024.day_02 import (
-    solve,
     parse_input,
+    solve,
 )
 
 
@@ -19,7 +20,7 @@ def day_02_test_input():
 
 @pytest.fixture
 def day_02_expected_output():
-    return (2,4)
+    return (2, 4)
 
 
 def test_solver(day_02_test_input, day_02_expected_output):

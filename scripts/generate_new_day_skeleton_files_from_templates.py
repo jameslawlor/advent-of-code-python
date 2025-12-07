@@ -1,6 +1,5 @@
-import os
 import argparse
-
+import os
 
 TEMPLATES_PATH = os.path.join("scripts", "templates")
 

@@ -6,11 +6,18 @@ authors = [
 ]
 description = "Code for Advent of Code 2023"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12,<4"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy==1.26.2",
+    "pytest==7.4.3",
+    "ruff>=0.14.8",
+    "setuptools==68.2.2",
+    "uv>=0.9.16",
 ]
 
 [project.urls]
@@ -31,7 +38,13 @@ addopts = [
 
 [tool.black]
 line-length = 88
-target-version = ['py39']
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+exclude = ["__pycache__", ".venv", "build", "dist"]
+lint.select = ["E", "F", "W", "C", "B", "I"]
 
 [project.scripts]
 # Console script for running day solutions: after `pip install -e .` you can run `aoc --year 2025 --day 1`

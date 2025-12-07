@@ -1,5 +1,7 @@
-import pytest
 import math
+
+import pytest
+
 from advent_of_code.year_2023.day_06 import (
     Race,
     Races,
@@ -66,7 +68,7 @@ def test_races_solve(sample_races):
 def test_create_races_part_1(day_6_test_input, sample_races):
     test_races = create_races(day_6_test_input, part=1)
     assert test_races.n_races() == 3
-    for race, expected_race in zip(test_races.races, sample_races.races):
+    for race, expected_race in zip(test_races.races, sample_races.races, strict=False):
         assert race.time == expected_race.time
         assert race.distance_to_beat == expected_race.distance_to_beat
         assert race.ways_to_win == expected_race.ways_to_win

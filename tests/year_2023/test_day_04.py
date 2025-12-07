@@ -1,9 +1,10 @@
 import pytest
+
 from advent_of_code.year_2023.day_04 import (
-    solve_day_4,
     compute_copies,
-    create_cards,
     compute_total_score,
+    create_cards,
+    solve_day_4,
 )
 
 

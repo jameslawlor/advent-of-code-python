@@ -1,6 +1,6 @@
-from advent_of_code.utils.input_handling import read_input
-
 import re
+
+from advent_of_code.utils.input_handling import read_input
 
 
 class Card:

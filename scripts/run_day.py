@@ -1,24 +1,27 @@
+import argparse
 import importlib
 import sys
-import argparse
+
 
 def main():
-    parser = argparse.ArgumentParser(description="Run a specific Advent of Code solution.")
+    parser = argparse.ArgumentParser(
+        description="Run a specific Advent of Code solution."
+    )
     # parser.add_argument(
-    #     "--input_file", 
-    #     required=True, 
-    #     type=str, 
+    #     "--input_file",
+    #     required=True,
+    #     type=str,
     #     help="Path to the input file for the day's solution."
     # )
     parser.add_argument(
-        "--year", 
-        required=True, 
-        type=int, 
+        "--year",
+        required=True,
+        type=int,
     )
     parser.add_argument(
-        "--day", 
-        required=True, 
-        type=str, 
+        "--day",
+        required=True,
+        type=str,
     )
 
     args = parser.parse_args()
@@ -35,10 +38,13 @@ def main():
             module.main(input_file)
         else:
             print("man")
-            print(f"The module {day_module} does not have a 'main(input_file)' function.")
+            print(
+                f"The module {day_module} does not have a 'main(input_file)' function."
+            )
     except ModuleNotFoundError:
         print(f"Could not find module: {day_module}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

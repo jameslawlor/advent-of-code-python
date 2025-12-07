@@ -7,10 +7,11 @@ YEARS_DIR = os.path.join(BASE_DIR, "year_")
 RUN_DAY_SCRIPT = "scripts/run_day.py"
 INPUTS_DIR = "inputs"
 
+
 def discover_and_run_solutions():
     # Regex to match "day_<number>.py"
     day_pattern = re.compile(r"day_(\d{2})\.py")
-    
+
     for year in sorted(os.listdir(BASE_DIR)):
         if year.startswith("year_"):
             year_path = os.path.join(BASE_DIR, year)
@@ -24,9 +25,11 @@ def discover_and_run_solutions():
                     day_number = match.group(1)
 
                     # Build input file path
-                    input_file = os.path.join(INPUTS_DIR, f"year_{year_number}", f"{day_number}.dat")
+                    input_file = os.path.join(
+                        INPUTS_DIR, f"year_{year_number}", f"{day_number}.dat"
+                    )
                     if not os.path.exists(input_file):
-                        print(f"Input file for {year_number} Day {day_number} not found, skipping.")
+                        print(f"Input for {year_number} {day_number} missing, skipping")
                         continue
 
                     # Run the solution using run_day.py
@@ -34,15 +37,21 @@ def discover_and_run_solutions():
                         print(f"Running {year_number} Day {day_number}...")
                         subprocess.run(
                             [
-                                "python3", RUN_DAY_SCRIPT,
-                                "--year", year_number,
-                                "--day", str(int(day_number)),  # Remove leading zero for argument
+                                "python3",
+                                RUN_DAY_SCRIPT,
+                                "--year",
+                                year_number,
+                                "--day",
+                                str(
+                                    int(day_number)
+                                ),  # Remove leading zero for argument
                             ],
-                            check=True
+                            check=True,
                         )
                         print("\n")
                     except subprocess.CalledProcessError as e:
                         print(f"Error running {year_number} Day {day_number}: {e}")
+
 
 if __name__ == "__main__":
     discover_and_run_solutions()

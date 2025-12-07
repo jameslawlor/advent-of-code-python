@@ -1,4 +1,8 @@
-from advent_of_code.utils.input_handling import read_input, read_side_by_side_list_format
+from advent_of_code.utils.input_handling import (
+    read_input,
+    read_side_by_side_list_format,
+)
+
 
 def compute_distance(i, j):
     return abs(i - j)
@@ -6,12 +10,12 @@ def compute_distance(i, j):
 
 def solve_part_1(parsed_input):
     (list1, list2) = parsed_input
-    list1_ordered = list(sorted(list1))
-    list2_ordered = list(sorted(list2))
+    list1_ordered = sorted(list1)
+    list2_ordered = sorted(list2)
 
     total_distance = 0
 
-    for i, j in zip(list1_ordered, list2_ordered):
+    for i, j in zip(list1_ordered, list2_ordered, strict=False):
         total_distance += compute_distance(i, j)
 
     return total_distance
@@ -30,7 +34,6 @@ def solve_part_2(parsed_input):
         total_similarity_score += compute_similarity(element, list2)
 
     return total_similarity_score
-
 
 
 def solve(input):
