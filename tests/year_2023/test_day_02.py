@@ -1,9 +1,10 @@
 import pytest
+
 from advent_of_code.year_2023.day_02 import (
-    solve_day_2,
     check_game_is_possible,
-    parse_game_string,
     find_max_shown_for_colour,
+    parse_game_string,
+    solve_day_2,
 )
 
 
@@ -25,7 +26,7 @@ def test_solve_day_2(day_2_test_input, expected):
 
 @pytest.mark.parametrize("expected", [(True, True, False, False, True)])
 def test_check_game_is_possible(day_2_test_input, expected):
-    for game, expected_result in zip(day_2_test_input, expected):
+    for game, expected_result in zip(day_2_test_input, expected, strict=False):
         _, test_game = parse_game_string(game)
         max_red = find_max_shown_for_colour(test_game, "red")
         max_blue = find_max_shown_for_colour(test_game, "blue")
@@ -40,7 +41,7 @@ def test_check_game_is_possible(day_2_test_input, expected):
     ],
 )
 def test_find_max_shown_for_colour(test_input, expected):
-    find_max_shown_for_colour(test_input, "red") == expected
+    assert find_max_shown_for_colour(test_input, "red") == expected
 
 
 @pytest.mark.parametrize(

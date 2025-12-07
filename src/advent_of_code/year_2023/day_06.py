@@ -1,7 +1,7 @@
-from advent_of_code.utils.input_handling import read_input
-
 import math
 import re
+
+from advent_of_code.utils.input_handling import read_input
 
 
 class Race:
@@ -11,7 +11,7 @@ class Race:
         self._compute_ways_to_win()
 
     def __str__(self):
-        return f"time: {self.time} | " f"distance_to_beat: {self.distance_to_beat} | "
+        return f"time: {self.time} | distance_to_beat: {self.distance_to_beat} | "
 
     def _compute_ways_to_win(self):
         possible_speeds = range(self.time + 1)
@@ -50,7 +50,7 @@ def create_races(input, part=1):
         times = ["".join(times)]
         distances = ["".join(distances)]
 
-    for time, distance in zip(times, distances):
+    for time, distance in zip(times, distances, strict=False):
         race = Race(time=time, distance_to_beat=distance)
         races.add_race(race)
 

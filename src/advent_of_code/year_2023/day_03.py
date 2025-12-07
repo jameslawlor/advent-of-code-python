@@ -1,6 +1,6 @@
-from advent_of_code.utils.input_handling import read_input
-
 import re
+
+from advent_of_code.utils.input_handling import read_input
 
 
 class Part:
@@ -191,7 +191,6 @@ def solve_day_3(input) -> int:
     gear_collection = identify_gears(parts_collection, symbol_collection)
     sum_of_gear_ratios = calculate_sum_of_gear_ratios(gear_collection)
     return (sum_of_part_numbers, sum_of_gear_ratios)
-
 
 
 def main(input_file):

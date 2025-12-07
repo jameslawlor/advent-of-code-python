@@ -7,12 +7,12 @@ Provides a small, modern CLI so the project can be run as:
 
 This duplicates the behavior of `scripts/run_day.py` but lives inside the package.
 """
+
 from __future__ import annotations
 
 import argparse
 import importlib
-import sys
-from typing import Sequence, Optional
+from typing import Optional, Sequence
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
@@ -24,8 +24,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     Returns:
         exit code (0 on success).
     """
-    parser = argparse.ArgumentParser(prog="aoc", description="Run an Advent of Code solution module")
-    parser.add_argument("--year", required=True, type=int, help="Year directory (e.g. 2025)")
+    parser = argparse.ArgumentParser(
+        prog="aoc", description="Run an Advent of Code solution module"
+    )
+    parser.add_argument(
+        "--year", required=True, type=int, help="Year directory (e.g. 2025)"
+    )
     parser.add_argument("--day", required=True, type=str, help="Day number (1 or 01)")
 
     args = parser.parse_args(argv)
@@ -39,8 +43,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         module = importlib.import_module(day_module)
     except ModuleNotFoundError as exc:
         print(f"Could not find module: {day_module}")
-        # Helpful hint: if running from the repository root, make sure `src` is on PYTHONPATH or install the package editable
-        print("Hint: run with `PYTHONPATH=src python -m advent_of_code ...` or `pip install -e .` to make the package importable")
+        # Helpful hint: if running from the repository root,
+        # make sure `src` is on PYTHONPATH or install the package editable.
+        print(
+            "Hint: run with `PYTHONPATH=src python -m advent_of_code ...` "
+            "or `pip install -e .` to make the package importable"
+        )
         if isinstance(exc, ModuleNotFoundError):
             # show original message
             print(str(exc))
