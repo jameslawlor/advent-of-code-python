@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2025.day_02 import (
     check_id_valid,
     check_id_valid_v2,
@@ -29,6 +28,7 @@ def test_solver(input, expected_output):
     result = solve(input_parsed)
     assert result == expected_output
 
+
 # 11-22 still has two invalid IDs, 11 and 22.
 # 95-115 now has two invalid IDs, 99 and 111.
 # 998-1012 now has two invalid IDs, 999 and 1010.
@@ -40,6 +40,7 @@ def test_solver(input, expected_output):
 # 565653-565659 now has one invalid ID, 565656.
 # 824824821-824824827 now has one invalid ID, 824824824.
 # 2121212118-2121212124 now has one invalid ID, 2121212121.
+
 
 @pytest.mark.parametrize(
     "input, expected_invalid_ids",
@@ -59,6 +60,7 @@ def test_solver(input, expected_output):
 )
 def test_find_invalid_ids_in_range_string_part_2(input, expected_invalid_ids):
     assert expected_invalid_ids == find_invalid_ids_in_range_string(input, part=2)
+
 
 @pytest.mark.parametrize(
     "input, expected_invalid_ids",
@@ -105,19 +107,28 @@ def test_convert_range_string_to_pair(input, expected_pair):
 
 @pytest.mark.parametrize(
     "input, is_valid",
-    [("11", False), ("12", True), ("22", False), ("998", True), ("999", True), ("1010", False), ("565656", True)],
+    [
+        ("11", False),
+        ("12", True),
+        ("22", False),
+        ("998", True),
+        ("999", True),
+        ("1010", False),
+        ("565656", True),
+    ],
 )
 def test_check_id_valid(input, is_valid):
     assert is_valid == check_id_valid(input)
 
+
 @pytest.mark.parametrize(
     "input, is_valid",
     [
-        ("11", False), 
-        ("12", True), 
-        ("22", False), 
-        ("998", True), 
-        ("999", False), 
+        ("11", False),
+        ("12", True),
+        ("22", False),
+        ("998", True),
+        ("999", False),
         ("1010", False),
         ("565656", False),
     ],

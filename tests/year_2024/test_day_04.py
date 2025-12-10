@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2024.day_04 import (
     check_direction_safety,
     solve,

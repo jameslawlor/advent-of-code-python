@@ -1,5 +1,4 @@
 import numpy as np
-
 from advent_of_code.utils.input_handling import read_input
 
 STRING_TO_FIND = "XMAS"

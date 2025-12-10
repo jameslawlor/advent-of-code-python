@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2025.day_01 import (
     points_at_zero_counter,
     solve,
