@@ -35,7 +35,6 @@ def calculate_largest_joltage(battery_bank_as_ints, n_batteries):
         start_ix = leftmost_index + 1
         batteries_remaining -= 1
 
-    print(f"list_of_joltages={list_of_joltages}")
     return combine_joltages(list_of_joltages)
 
 
