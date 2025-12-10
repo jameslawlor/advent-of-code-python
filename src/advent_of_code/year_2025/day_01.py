@@ -36,8 +36,6 @@ def points_at_zero_counter(current_position, turn_direction, distance):
     full_loops = distance // DIAL_SIZE
 
     partial_loops = 0
-    print("Case:", current_position, turn_direction, distance)
-    print(" Full loops:", full_loops)
 
     # Check if we passed zero in the remaining distance after full loops
     new_position = turn_dial(current_position, turn_direction, distance)
@@ -58,10 +56,7 @@ def points_at_zero_counter(current_position, turn_direction, distance):
 
     # check if we landed on zero
     if current_position != 0 and new_position == 0:
-        print(" Landed on zero, updating partial loops")
         partial_loops += 1
-
-    print(" Partial loops:", partial_loops)
 
     return full_loops + partial_loops
 
