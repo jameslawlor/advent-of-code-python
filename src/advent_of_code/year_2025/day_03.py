@@ -1,5 +1,6 @@
 from advent_of_code.utils.input_handling import read_input
 
+
 def parse_battery_bank_to_ints_list(battery_bank_str):
     return [int(x) for x in battery_bank_str]
 
@@ -8,18 +9,34 @@ def combine_joltages(list_of_joltages):
     return int("".join([str(x) for x in list_of_joltages]))
 
 
+def find_max_and_leftmost_index(input_list):
+    max_value = max(input_list)
+    leftmost_index = input_list.index(max_value)
+    return max_value, leftmost_index
+
+
 def calculate_largest_joltage(battery_bank_as_ints, n_batteries):
-    largest_joltage_1 = 0
-    
-    for battery_index, battery_value in enumerate(battery_bank_as_ints):
-     if (battery_value > largest_joltage_1) and (battery_index < len(battery_bank_as_ints) - 1):
-         largest_joltage_1 = battery_value
-         largest_joltage_2 = 0
-         for second_battery_value in battery_bank_as_ints[battery_index+1:]:
-             if second_battery_value > largest_joltage_2:
-                 largest_joltage_2 = second_battery_value
-    
-    return combine_joltages([largest_joltage_1, largest_joltage_2])
+
+    batteries_remaining = n_batteries
+    bank_len = len(battery_bank_as_ints)
+    list_of_joltages = []
+    start_ix = 0
+
+    while batteries_remaining > 0:
+        end_ix = bank_len - batteries_remaining + 1
+        window_to_check = battery_bank_as_ints[start_ix:end_ix]
+
+        # find largest value in window and the left-most index for dupes
+        max_value, leftmost_index_window = find_max_and_leftmost_index(window_to_check)
+        leftmost_index = leftmost_index_window + start_ix
+        list_of_joltages.append(max_value)
+
+        # reassign start_ix and update remaining batteries
+        start_ix = leftmost_index + 1
+        batteries_remaining -= 1
+
+    print(f"list_of_joltages={list_of_joltages}")
+    return combine_joltages(list_of_joltages)
 
 
 def solve_part(input, n_batteries):
@@ -31,6 +48,7 @@ def solve_part(input, n_batteries):
         joltage_list.append(largest_joltage)
 
     return sum(joltage_list)
+
 
 def solve(input):
     part_1_solution = solve_part(input, n_batteries=2)

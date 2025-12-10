@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2023.day_03 import (
     Part,
     Symbol,

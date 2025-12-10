@@ -1,6 +1,7 @@
 from advent_of_code.utils.input_handling import read_input
 
-VALID_PARTS = (1,2)
+VALID_PARTS = (1, 2)
+
 
 def parse_input(raw):
     raw_split = raw[0].split(",")
@@ -25,16 +26,22 @@ def check_id_valid(id):
     else:
         return True
 
+
 def check_id_valid_v2(id):
     id_len = len(str(id))
     half_len = id_len // 2
-    for sub_str_len in range(1,half_len+1):
+    for sub_str_len in range(1, half_len + 1):
         sub_str = id[:sub_str_len]
         str_to_search = id[sub_str_len:]
-        if (len(str_to_search) % sub_str_len == 0): # substr divisible by search str length
-            if (sub_str * (id_len // sub_str_len) == id): # substr matches N * search string 
+        if (
+            len(str_to_search) % sub_str_len == 0
+        ):  # substr divisible by search str length
+            if (
+                sub_str * (id_len // sub_str_len) == id
+            ):  # substr matches N * search string
                 return False
     return True
+
 
 def get_invalid_ids_in_range(range_pair, part):
     full_range = range(range_pair[0], range_pair[1] + 1)
@@ -45,7 +52,7 @@ def get_invalid_ids_in_range(range_pair, part):
         id_checker_function = check_id_valid_v2
     else:
         raise ValueError("Specify a valid part number")
-    
+
     invalid_ids = []
     for x in full_range:
         if not id_checker_function(str(x)):
@@ -74,9 +81,11 @@ def solve_part(parsed_input, part):
     invalid_ids = find_all_invalid_ids(parsed_input, part)
     return sum_invalid_ids(invalid_ids)
 
+
 def solve_part_2(parsed_input):
     invalid_ids = find_all_invalid_ids(parsed_input)
     return sum_invalid_ids(invalid_ids)
+
 
 def solve(parsed_input):
     part_1_solution = solve_part(parsed_input, part=1)

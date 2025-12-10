@@ -1,7 +1,6 @@
 import math
 
 import pytest
-
 from advent_of_code.year_2023.day_06 import (
     Race,
     Races,

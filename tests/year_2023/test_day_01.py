@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2023.day_01 import (
     convert_first_last_patterns_to_calibration_value,
     convert_str_to_numerical,

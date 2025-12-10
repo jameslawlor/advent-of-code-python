@@ -1,5 +1,4 @@
 import pytest
-
 from advent_of_code.year_2023.day_02 import (
     check_game_is_possible,
     find_max_shown_for_colour,
